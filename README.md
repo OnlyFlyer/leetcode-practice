@@ -5,7 +5,7 @@ leetcode practice
 
 ## 本周讲解
 
-<img src="https://github.com/MrZhouChiBang/squirrel-leetcode/blob/master/images/tao.png?raw=true" height="200" />
+<img src="https://github.com/OnlyFlyer/leetcode-practice/blob/master/images/tao.png?raw=true" height="200" />
 
 ## 本周题目
 
