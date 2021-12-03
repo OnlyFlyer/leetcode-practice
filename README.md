@@ -12,7 +12,7 @@
 
 LeetCode
 
-🤔 [#39 组合总和](https://leetcode-cn.com/problems/two-sum/) - [code](./code/[39]组合总和)
+😨 [#39 组合总和](https://leetcode-cn.com/problems/two-sum/) - [code](./code/[39]组合总和)
 
 业务
 
