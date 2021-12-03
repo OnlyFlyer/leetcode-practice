@@ -124,3 +124,34 @@
 
 // code start
 
+// 为什么不用 join() 和 split()?
+// 因为 ['a,b,c', 'b,c'] 这种字符串本身带逗号（默认是逗号，其他分隔符同理）的，会有问题
+
+const splitAndMerge = (arr) => {
+  const result = [];
+  const supplierMapToContent = new Map();
+  const contentMapToSuppliers = new Map();
+  arr.forEach((item) => {
+      item.s.forEach((s) => {
+          if (supplierMapToContent.has(s)) {
+              supplierMapToContent.set(s, [...new Set([...supplierMapToContent.get(s), ...item.c])].sort());
+          } else {
+              supplierMapToContent.set(s, item.c.sort());
+          }
+      });
+  });
+  supplierMapToContent.forEach((c, s) => {
+      if (contentMapToSuppliers.has(JSON.stringify(c))) {
+          contentMapToSuppliers.set(JSON.stringify(c), [...contentMapToSuppliers.get(JSON.stringify(c)), s]);
+      } else {
+          contentMapToSuppliers.set(JSON.stringify(c), s);
+      }
+  })
+  contentMapToSuppliers.forEach((s, c) => {
+      result.push({
+          c: JSON.parse(c),
+          s: s,
+      });
+  });
+  return result;
+}
