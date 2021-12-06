@@ -12,3 +12,14 @@
     }
   }
 };
+
+var twoSumHigh = function (nums, target) {
+  const cacheMap = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    const curr = nums[i];
+    if (cacheMap.has(target - curr)) {
+      return [cacheMap.get(target - curr), i]
+    }
+    cacheMap.set(curr, i)
+  }
+}
