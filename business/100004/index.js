@@ -98,7 +98,7 @@ function fn(arr = []) {
       return loop(cacheArr, nextLevelData, level + 1);
     }
   }
-  return loop([], arr, 1)
+  return loop([], arr, 1);
 }
 
 
