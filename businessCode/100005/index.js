@@ -8,28 +8,28 @@
 //     id: '1',
 //     pId: null,
 //     children: [
-//       { 
-//          id: '1-1', 
-//          pId: '1', 
+//       {
+//          id: '1-1',
+//          pId: '1',
 //          children: [
 //            {
-//             id: '1-1-1', 
-//             pId: '1-1', 
+//             id: '1-1-1',
+//             pId: '1-1',
 //             children: []
 //            }
 //          ]
 //       },
-//       { 
-//         id: '1-2', 
+//       {
+//         id: '1-2',
 //         pId: '1',
 //         children: [
 //           {
-//            id: '1-2-1', 
-//            pId: '1-2', 
+//            id: '1-2-1',
+//            pId: '1-2',
 //            children: [
 //              {
-//               id: '1-2-1-1', 
-//               pId: '1-2-1', 
+//               id: '1-2-1-1',
+//               pId: '1-2-1',
 //               children:[],
 //              }
 //            ],
@@ -79,7 +79,7 @@ const findPath = (tree, targetNodeId) => {
   deepFindFunc(tree, [], targetNodeId)
 
   return finalRes
-  
+
 };
 
 const test1 = () => {
@@ -88,28 +88,28 @@ const test1 = () => {
       id: '1',
       pId: null,
       children: [
-        { 
-          id: '1-1', 
-          pId: '1', 
+        {
+          id: '1-1',
+          pId: '1',
           children: [
             {
-              id: '1-1-1', 
-              pId: '1-1', 
+              id: '1-1-1',
+              pId: '1-1',
               children: []
             }
           ]
         },
-        { 
-          id: '1-2', 
+        {
+          id: '1-2',
           pId: '1',
           children: [
             {
-            id: '1-2-1', 
-            pId: '1-2', 
+            id: '1-2-1',
+            pId: '1-2',
             children: [
               {
-                id: '1-2-1-1', 
-                pId: '1-2-1', 
+                id: '1-2-1-1',
+                pId: '1-2-1',
                 children:[],
               }
             ],
