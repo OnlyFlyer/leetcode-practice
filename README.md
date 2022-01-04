@@ -2,7 +2,7 @@
 
 ## 本周讲解
 
-<img src="https://github.com/OnlyFlyer/leetcode-practice/blob/master/images/hui.png?raw=true" height="200" />
+<img src="https://github.com/OnlyFlyer/leetcode-practice/blob/master/images/tao.png?raw=true" height="200" />
 
 ## 本周题目
 
@@ -10,7 +10,7 @@
 
 LeetCode
 
-😨 [#108 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/longest-palindromic-substring/) - [code](./code/[5]最长回文子串/index.js)
+😨 [#5 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) - [code](./code/[5]最长回文子串/index.js)
 
 业务
 
