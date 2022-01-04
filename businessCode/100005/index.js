@@ -56,6 +56,87 @@
 // const output = ['1', '1-2', '1-2-1', '1-2-1-1']
 
 const findPath = (tree, targetNodeId) => {
+
+  let finalRes = []
+
+  const deepFindFunc = (arr, pathList, targetId) => {
+    for (let i = 0; i < arr.length; i++) {
+      const item = arr[i]
+      if (item.id === targetId) {
+        const tempPath = JSON.parse(JSON.stringify(pathList))
+        tempPath.push(item.id)
+        finalRes = tempPath
+        return
+      } else if (item.children) {
+        const tempPath = JSON.parse(JSON.stringify(pathList))
+        tempPath.push(item.id)
+        deepFindFunc(item.children, tempPath, targetId)
+      }
+    }
+  }
+
+
+  deepFindFunc(tree, [], targetNodeId)
+
+  return finalRes
   
 };
+
+const test1 = () => {
+  const tree = [
+    {
+      id: '1',
+      pId: null,
+      children: [
+        { 
+          id: '1-1', 
+          pId: '1', 
+          children: [
+            {
+              id: '1-1-1', 
+              pId: '1-1', 
+              children: []
+            }
+          ]
+        },
+        { 
+          id: '1-2', 
+          pId: '1',
+          children: [
+            {
+            id: '1-2-1', 
+            pId: '1-2', 
+            children: [
+              {
+                id: '1-2-1-1', 
+                pId: '1-2-1', 
+                children:[],
+              }
+            ],
+            }
+          ]
+        },
+      ],
+    },
+    {
+      id: '2',
+      pId: null,
+      children: [
+        { id: '2-1', pId: '2', },
+        { id: '2-2', pId: '2', },
+      ],
+    },
+  ];
+
+  const targetNodeId = '1-2-1-1'
+
+  const result = findPath(tree, targetNodeId)
+  console.log('result>>>>', result)
+}
+
+const main = () => {
+  test1()
+}
+
+main()
 
