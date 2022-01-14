@@ -15,3 +15,29 @@ var isValid = function(s) {
   }
   return !stack.length
 };
+
+var isValids = function(s) {
+  const stack = [];
+  const isLeft = single => (
+    single === '(' ||
+    single === '{' ||
+    single === '['
+  );
+  const isMatch = (l, r) => (
+    l === '(' && r === ')' ||
+    l === '{' && r === '}' ||
+    l === '[' && r === ']'
+  )
+  for (const single of s) {
+    if (isLeft(single)) {
+      stack.push(single);
+    } else {
+      if (!isMatch(stack.pop(), single)) {
+        return false;
+      }
+    }
+  }
+  return !stack.length;
+};
+
+
