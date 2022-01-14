@@ -11,8 +11,98 @@
   请自行设计，不要求实现文件的个数，没有框架、方案限制，越符合要求且越清晰越简单越好。
 */
 
-import { Select } from 'antd'
+// https://ant.design/components/form-cn/
+// models.js
+export const Model = {
+  namespace: 'user',
+  state: {
+    userList: [],
+    userMap: {},
+  },
+  effects: {
+    *fetchUserList({ payload = {} }, { put, call }) {
+      try {
+        const { result: userList = [] } = yield call(getUserList, payload);
+        const userMap = userList.reduce(
+          (prev, { id, name }) => ({
+            ...prev,
+            [id]: { id, name },
+          }), {});
+        yield put({
+          type: 'updateState',
+          payload: { userList, userMap },
+        });
+      } catch (err) {
+        //
+      }
+    },
+  },
 
-function UserSelect() {
-  return <Select></Select>
+  reducers: {
+    updateState(state, { payload = {} } = {}) {
+      return {
+        ...state,
+        ...payload,
+      };
+    },
+  },
+  subscriptions: {},
+};
+
+// user_select.js
+import { Select } from 'antd'
+function UserSelect(props = {}) {
+  const {
+    value,
+    onChange,
+    defaultValue,
+    userState: { userList = [], userMap } = {},
+    userDispatch,
+    loading,
+  } = props;
+  const dataSource = userList
+    .map(({ id, name } = {}) => ({ label: name, value: id }))
+  useEffect(() => {
+    userDispatch({
+      type: 'fetchUserList',
+      payload: {}
+    })
+  }, [])
+  return (
+    <Select
+      value={value}
+      onChange={onChange}
+      defaultValue={defaultValue}
+      options={dataSource}
+      loading={loading}
+    />
+  )
 }
+
+export default connect(
+  ({
+    user,
+    loading: { models = {} } = {},
+  } = {}) => ({
+    userState: user,
+    // dva-loading plugin
+    loading: models.user,
+  }),
+  ({ user } = {}) => ({ userDispatch: user }),
+)(UserSelect)
+
+// useage page.js
+function Page (props = {}) {
+  const { form, userState: { userMap }  = {} } = props;
+  const userId = form.getFieldValue('id');
+  const userInfo = userMap[userId];
+  console.log('userInfo:', userInfo);
+  return (
+    <Form>
+      {form.getFieldDecorator('id')(
+        <UserSelect />
+      )}
+    </Form>
+  )
+}
+connect(({ user }) => ({ userState: user }))(Page)
