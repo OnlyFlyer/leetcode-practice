@@ -10,6 +10,8 @@
 
 LeetCode
 
+😨 [#79 单词搜索](https://leetcode-cn.com/problems/word-search/) - [code](./code/[79]单词搜索/index.js)
+
 😨 [#20 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/) - [code](./code/[20]有效的括号/index.js)
 
 业务
