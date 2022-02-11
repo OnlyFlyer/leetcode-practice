@@ -8,9 +8,6 @@
 
 > 不要轻易放弃，把题解看懂消化，再表达出来也是可以的
 
-LeetCode
-😨 [#205 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) - [code](./code/[205]数组中的第K个最大元素/index.js)
-
 
 业务
 
@@ -34,6 +31,9 @@ LeetCode
 😨 [#79 单词搜索](https://leetcode-cn.com/problems/word-search/) - [code](./code/[79]单词搜索/index.js)
 
 😨 [#20 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/) - [code](./code/[20]有效的括号/index.js)
+
+😨 [#215 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) - [code](./code/[215]数组中的第K个最大元素/index.js)
+
 
 
 业务
