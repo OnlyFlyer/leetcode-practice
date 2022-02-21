@@ -31,15 +31,16 @@ export class LRUCache {
     // 容量
     this.len = len;
     // 用于记录当前长度
-    this.currLen = 0;
+    this.currLen = 1;
     // 用于取值
     this.keyMap = new Map();
     // 用于存储排列，方便根据时间戳取 key;
     this.timestampMap = new Map();
     this.timestampNum = [];
+    this.setByQuery({ key: len, val: len })
   }
   getData = () => {
-    console.log('this:', this);
+    // console.log('this:', this);
     console.log('缓存的值:', this.timestampNum.map(t => {
       const k = this.timestampMap.get(t) || {};
       const { val: v } = this.keyMap.get(k) || {}
