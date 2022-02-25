@@ -151,7 +151,7 @@ class Room {
     if (idx > -1) {
       this.roomInfo = {
         ...roomInfo,
-        [roomName]: (roomInfo[roomName] || []).concat(timeRange),
+        [roomName]: (roomInfo[roomName] || []).concat([timeRange]),
       }
       this.initCanBookRoomInfo();
     } else {
