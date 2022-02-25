@@ -90,7 +90,9 @@ class Room {
   constructor(roomInfo = {}) {
     this.MIN = 0;
     this.MAX = 24;
+    // 预定会议室情况
     this.roomInfo = roomInfo;
+    // 目前能够预定会议室情况
     this.canBookRoomInfo = {}
     this.initCanBookRoomInfo();
   }
@@ -121,9 +123,11 @@ class Room {
     this.canBookRoomInfo = cacheCanBookRoomInfo;
     console.log('this:', this);
   }
+  // 获取当前预定会议室情况
   getCurrInfo = () => {
     return this.roomInfo;
   }
+  // 根据预定时长获取可预定的会议室信息
   getRoomsByDuration = (duration) => {
     const { canBookRoomInfo } = this;
     const canBookRoomList = [];
@@ -135,6 +139,7 @@ class Room {
     })
     return canBookRoomList;
   }
+  // 根据预定会议室和时间段预定会议室
   bookRoom = (roomName, timeRange) => {
     const { MIN, MAX, canBookRoomInfo = {}, roomInfo } = this;
     if (timeRange.some(t => t > MAX || t < MIN) || timeRange[0] >= timeRange[1]) {
