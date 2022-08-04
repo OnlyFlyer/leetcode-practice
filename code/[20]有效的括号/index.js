@@ -1,4 +1,15 @@
-var isValid = function(s) {
+/*
+ * @lc app=leetcode.cn id=20 lang=javascript
+ *
+ * [20] 有效的括号
+ */
+
+// @lc code=start
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+ var isValid = function(s) {
   if (s.length === 0) return true;
   const a = ['()', '[]', '{}']
   var stack = [];
@@ -40,4 +51,7 @@ var isValids = function(s) {
   return !stack.length;
 };
 
+
+
+// @lc code=end
 
